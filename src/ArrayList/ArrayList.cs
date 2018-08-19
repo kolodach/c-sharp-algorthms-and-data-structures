@@ -6,16 +6,20 @@ namespace AlgorithmsAndDataStructures.Collections
 
     public class ArrayList<T> : IList<T>
     {
-        private const int _defaultInitialCapacity = 10;
+        private readonly int _initialCapacity;
+        private const float _expandFactor = 2.0f;
+        private readonly bool _shrinkEnabled;
         private T[] _array;
         private int _count;
         private int _capacity;
 
-        public ArrayList(int capacity = _defaultInitialCapacity)
+        public ArrayList(int capacity = 10, bool shrinkEnabled = false)
         {
             _capacity = capacity;
+            _initialCapacity = _capacity;
             _array = new T[_capacity];
             _count = 0;
+            _shrinkEnabled = shrinkEnabled;
         }
 
         public T this[int i]
@@ -29,6 +33,8 @@ namespace AlgorithmsAndDataStructures.Collections
         }
 
         public int Count => _count;
+
+        public int Capacity => _capacity;
 
         public bool Contains(T element)
         {
@@ -64,17 +70,40 @@ namespace AlgorithmsAndDataStructures.Collections
             _count++;
         }
 
-        public void Remove(int position, T element)
+        public bool Remove(int position)
         {
-            throw new System.NotImplementedException();
+            if (position < 0 || position >= _count)
+                return false;
+            for (int i = position; i < _count; i++)
+                _array[i] = _array[i + 1];
+            ShrinkArray();
+            _count--;
+            return true;
+        }
+
+        private void ShrinkArray()
+        {
+            bool shouldShrink = _shrinkEnabled
+            && _capacity / (float)_count >= _expandFactor
+            && _capacity / _expandFactor >= _initialCapacity;
+
+            if (shouldShrink)
+            {
+                _capacity = (int)Math.Round(_capacity / _expandFactor);
+                var oldArray = _array;
+                _array = new T[_capacity];
+                for (int i = 0; i < _count; i++)
+                    _array[i] = _array[i];
+            }
         }
 
         private void ExpandArray()
         {
             if (_capacity != int.MaxValue)
             {
-                _capacity = _capacity * 2 <= int.MaxValue
-                    ? _capacity * 2
+                var nextCapacity = (int)Math.Round(_capacity * _expandFactor);
+                _capacity = nextCapacity <= int.MaxValue
+                    ? nextCapacity
                     : int.MaxValue;
                 var oldArray = _array;
                 _array = new T[_capacity];
