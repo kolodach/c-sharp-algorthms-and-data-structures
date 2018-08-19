@@ -54,7 +54,7 @@ step 1:
 
 step 2:
 
-redy for insestion
+redy for insestdion
      |
      v
 [0],[1],[1],[2],...
