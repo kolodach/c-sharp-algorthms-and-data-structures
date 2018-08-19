@@ -32,7 +32,14 @@ namespace AlgorithmsAndDataStructures.Collections
 
         public bool Contains(T element)
         {
-            throw new System.NotImplementedException();
+            var contains = false;
+            foreach (var item in _array)
+                if (item.Equals(element))
+                {
+                    contains = true;
+                    break;
+                }
+            return contains;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -47,11 +54,11 @@ namespace AlgorithmsAndDataStructures.Collections
 
         public void Insert(int position, T element)
         {
-            if(position < 0 || position > _count)
+            if (position < 0 || position > _count)
                 throw new ArgumentOutOfRangeException(nameof(Insert), nameof(position));
-            if(_count + 1 > _capacity)
+            if (_count + 1 > _capacity)
                 ExpandArray();
-            for(int i = _count - 1; i >= position; i--)
+            for (int i = _count - 1; i >= position; i--)
                 _array[i + 1] = _array[i];
             _array[position] = element;
             _count++;
@@ -71,7 +78,7 @@ namespace AlgorithmsAndDataStructures.Collections
                     : int.MaxValue;
                 var oldArray = _array;
                 _array = new T[_capacity];
-                for(int i = 0; i < _count; i++)
+                for (int i = 0; i < _count; i++)
                     _array[i] = oldArray[i];
             }
         }

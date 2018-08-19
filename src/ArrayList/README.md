@@ -1,6 +1,5 @@
 # Array List. Implementation Notes
 
-### Notes
 Default initial size of inner array is 10. The state is represented by following:
 
 |           |                               |
@@ -17,6 +16,27 @@ Default initial size of inner array is 10. The state is represented by following
 - [ ] Index Of
 - [ ] Enumerator
 - [ ] Count
+
+## Contains(T element)
+
+### TestCauses
+
+- [x] Should return true when contains
+- [x] Should return false when not contains
+- [x] Should return false when empty
+- [x] Should return true when contains repeating element
+
+### Notes
+
+```
+def Contains element
+    let contains = false
+    foreach item in _array
+        if item == element
+            contains = true
+            break
+    return contains
+```
 
 ## Indexer(int index)
 
