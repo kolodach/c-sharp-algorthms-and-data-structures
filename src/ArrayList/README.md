@@ -11,7 +11,7 @@ Default initial size of inner array is 10. The state is represented by following
 ### Implementation Progress
 - [x] Indexer
 - [x] Insert
-- [ ] Contains
+- [x] Contains
 - [ ] Remove
 - [ ] Index Of
 - [ ] Enumerator
