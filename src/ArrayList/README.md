@@ -16,8 +16,16 @@ Default initial size of inner array is 10. The state is represented by following
 - [x] Remove
 - [x] Clear
 - [x] Index Of
-- [ ] Enumerator
+- [x] Enumerator
 - [x] Count
+
+## Enumerator
+
+### TestCases
+
+- [x] Should keep correct order
+- [x] Should not throw when empty
+- [x] Should loop throught all items
 
 ## IndeOf(T element)
 

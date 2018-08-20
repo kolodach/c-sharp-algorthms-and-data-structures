@@ -1,13 +1,13 @@
 # Basic Algorithms And Data Structures using C#
 This project includes C# implementation of basic algorithms and data structures using in Computer Science. It includes:
-- LinkedList
-- Stack
-- Queue
-- ArrayList
-- Dictionary
-- HashMap
-- Binary Tree (including search algorithms)
-- Graph
+- [ ] LinkedList
+- [ ] Stack
+- [ ] Queue
+- [x] ArrayList
+- [ ] Dictionary
+- [ ] HashMap
+- [ ] Binary Tree (including search algorithms)
+- [ ] Graph
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

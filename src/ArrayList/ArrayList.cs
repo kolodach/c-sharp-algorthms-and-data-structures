@@ -50,7 +50,8 @@ namespace AlgorithmsAndDataStructures.Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            for(int i = 0; i < _count; i++)
+                yield return _array[i];
         }
 
         public int IndexOf(T element)
