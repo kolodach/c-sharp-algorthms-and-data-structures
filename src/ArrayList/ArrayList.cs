@@ -55,7 +55,14 @@ namespace AlgorithmsAndDataStructures.Collections
 
         public int IndexOf(T element)
         {
-            throw new System.NotImplementedException();
+            int index = -1;
+            for (int i = 0; i < _count; i++)
+                if (_array[i].Equals(element))
+                {
+                    index = i;
+                    break;
+                }
+            return index;
         }
 
         public void Insert(int position, T element)

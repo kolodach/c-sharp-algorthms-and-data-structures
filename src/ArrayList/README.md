@@ -14,17 +14,38 @@ Default initial size of inner array is 10. The state is represented by following
 - [x] Insert
 - [x] Contains
 - [x] Remove
-- [ ] Clear
-- [ ] Index Of
+- [x] Clear
+- [x] Index Of
 - [ ] Enumerator
 - [x] Count
+
+## IndeOf(T element)
+
+### Test Cases
+
+- [x] Should return index of element if countains
+- [x] Should return index of first occurrence of element if duplications exists.
+- [x] Should return -1 when element does not exists
+- [x] Should return -1 when empty
+
+### Notes
+
+```
+def IndexOf element
+    let index = -1
+    for i = 0, i < count, i++
+        if array[i] == element
+            index = i
+            break
+    return index;
+```
 
 ## Clear
 
 ### Test Cases
 
-- [ ] Shold clear
-- [ ] Should not throw when empty
+- [x] Shold clear
+- [x] Should not throw when empty
 
 ### Notes
 
@@ -51,14 +72,14 @@ def clear
 
 ### Notes
 
-There are few special causes needs to be reviwed:
+There are few special causes needs to be reviewed:
 - Remove first lement
 - Remove element at the end
 - Remove lst element
 - Remove not containing element
 - Remove element when list is empty
 
-Let's start with a simple scenatio and sopose that we need to remove the element from the middle of the list. This cause will contain few steps:
+Let's start with a simple scenatio and supose that we need to remove the element from the middle of the list. This cause will contain few steps:
 
 1. Find the position of the element being removed
 2. Removing the element from the list
