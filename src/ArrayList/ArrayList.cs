@@ -81,6 +81,13 @@ namespace AlgorithmsAndDataStructures.Collections
             return true;
         }
 
+        public void Clear()
+        {
+            _capacity = _initialCapacity;
+            _array = new T[_capacity];
+            _count = 0;
+        }
+
         private void ShrinkArray()
         {
             bool shouldShrink = _shrinkEnabled

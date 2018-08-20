@@ -5,5 +5,7 @@ namespace AlgorithmsAndDataStructures.Collections
         void Insert(int position, T element);
 
         bool Remove(int position);
+
+        void Clear();
     }
 }

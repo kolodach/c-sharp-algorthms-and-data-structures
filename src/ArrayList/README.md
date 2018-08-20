@@ -1,5 +1,6 @@
 # Array List. Implementation Notes
 
+## General
 Default initial size of inner array is 10. The state is represented by following:
 
 |           |                               |
@@ -18,9 +19,25 @@ Default initial size of inner array is 10. The state is represented by following
 - [ ] Enumerator
 - [x] Count
 
+## Clear
+
+### Test Cases
+
+- [ ] Shold clear
+- [ ] Should not throw when empty
+
+### Notes
+
+```
+def clear
+    capacity = initialCapacity
+    array = new [capacity]
+    count = 0
+```
+
 ## Remove(T element)
 
-### Test Causes
+### Test Cases
 
 - [x] Should not remove when out of range
 - [x] Should not throw when array is empty
@@ -118,7 +135,7 @@ def Contains element
 
 ## Indexer(int index)
 
-### Test Causes
+### Test Cases
 - [x] Should throw when out of range when empty
 - [x] Should throw when out of range when not empty
 
@@ -160,7 +177,7 @@ redy for insestdion
 
 By the way, 1 and 2 causes can be 1 reviewed as zero-shifting.
 
-### Test Causes
+### Test Cases
 - [x] Should Insert When list is empty
 - [x] Should Insert at the start when not empty
 - [x] Should Insert at the end
