@@ -148,14 +148,43 @@ namespace AlgorithmsAndDataStructures.Collections
             _count++;
         }
 
+        /// <summary>
+        /// Inserts the element at the specific position. 
+        /// </summary>
+        /// <param name="element">The element being inserted</param>
+        /// <exception cref="System.IndexOutOfRangeException">when index is less than zero or greater than count</exception>  
         public void Insert(int position, T element)
         {
-            throw new System.NotImplementedException();
+            if (position < 0 || position > _count)
+                throw new IndexOutOfRangeException();
+            if (position == 0)
+            {
+                AddFirst(element);
+                return;
+            }
+            if (position == _count)
+            {
+                AddLast(element);
+                return;
+            }
+            var current = _head;
+            int index = 0;
+            while (current != null && index != position)
+            {
+                index++;
+                current = current.Next;
+            }
+            var node = new LinkedListNode<T>(element);
+            node.Previous = current.Previous;
+            node.Previous.Next = node;
+            current.Previous = node;
+            node.Next = current;
+            _count++;
         }
 
         public bool Remove(int position)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
