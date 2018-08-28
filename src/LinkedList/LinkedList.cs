@@ -18,7 +18,7 @@ namespace AlgorithmsAndDataStructures.Collections
         private int _count;
 
         /*
-            Returns element at specific index. Iterates throught if index is less than 0 or greater or equal then count
+            Returns element at specific index. Iterates through if index is less than 0 or greater or equal then count
             System.IndexOutOfRangeException will be thrown.
          */
         public T this[int index]
@@ -76,14 +76,45 @@ namespace AlgorithmsAndDataStructures.Collections
             return contains;
         }
 
+        /// <summary>
+        /// Returns index of first occurrence of given element
+        /// </summary>
         public IEnumerator<T> GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            var current = _head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
+        /// <summary>
+        /// Returns index of first occurrence of given element
+        /// </summary>
+        /// <return>
+        /// Index of first occurrence of element if exists, 
+        /// -1 if given element does not exists.
+        /// </return>
+        /// <param name="element">The element being inserted</param>
         public int IndexOf(T element)
         {
-            throw new System.NotImplementedException();
+            if (element == null)
+                return -1;
+            var index = 0;
+            var current = _head;
+            while (current != null)
+            {
+                if (element.Equals(current.Value))
+                {
+                    break;
+                }
+                current = current.Next;
+                index++;
+            }
+            if (current == null)
+                return -1;
+            return index;
         }
 
 
