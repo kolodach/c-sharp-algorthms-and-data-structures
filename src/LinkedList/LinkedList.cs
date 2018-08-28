@@ -42,14 +42,38 @@ namespace AlgorithmsAndDataStructures.Collections
 
         public int Count => _count;
 
+
+        /// <summary>
+        /// Removes all elements from list 
+        /// </summary>
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            _head = null;
+            _tail = null;
+            _count = 0;
         }
 
+        /// <summary>
+        /// Inserts the element at the start of the list. 
+        /// </summary>
+        /// <param name="element">The element that being checked</param>
         public bool Contains(T element)
         {
-            throw new System.NotImplementedException();
+            if (element == null)
+                return false;
+
+            bool contains = false;
+            var current = _head;
+            while (current != null)
+            {
+                if (element.Equals(current.Value))
+                {
+                    contains = true;
+                    break;
+                }
+                current = current.Next;
+            }
+            return contains;
         }
 
         public IEnumerator<T> GetEnumerator()
