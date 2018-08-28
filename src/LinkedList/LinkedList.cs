@@ -63,16 +63,6 @@ namespace AlgorithmsAndDataStructures.Collections
         }
 
 
-        /*
-            Pseudocode:
-            
-            def AddFirst element
-                element.next = head
-                head = element
-                if tail == null
-                    tail = element
-                count ++s
-         */
         /// <summary>
         /// Inserts the element at the start of the list. 
         /// </summary>
@@ -81,15 +71,26 @@ namespace AlgorithmsAndDataStructures.Collections
         {
             var node = new LinkedListNode<T>(element);
             node.Next = _head;
-            _head = node;
-            if(_tail == null)
+            if (_tail == null)
                 _tail = node;
+            else _head.Previous = node;
+            _head = node;
             _count++;
         }
 
+        /// <summary>
+        /// Inserts the element at the end of the list. 
+        /// </summary>
+        /// <param name="element">The element being inserted</param>
         public void AddLast(T element)
         {
-
+            var node = new LinkedListNode<T>(element);
+            node.Previous = _tail;
+            if (_head == null)
+                _head = node;
+            else _tail.Next = node;
+            _tail = node;
+            _count++;
         }
 
         public void Insert(int position, T element)
