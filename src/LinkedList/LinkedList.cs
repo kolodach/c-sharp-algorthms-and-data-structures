@@ -40,6 +40,9 @@ namespace AlgorithmsAndDataStructures.Collections
             }
         }
 
+        /// <summary>
+        /// Currnet number of elements
+        /// </summary>
         public int Count => _count;
 
 
