@@ -182,9 +182,31 @@ namespace AlgorithmsAndDataStructures.Collections
             _count++;
         }
 
+        /// <summary>
+        /// Removes element at given position
+        /// </summary>
+        /// <param name="position">The position of element being removed</param>
         public bool Remove(int position)
         {
-            throw new NotImplementedException();
+            if (_count == 0)
+                return false;
+            if (position < 0 || position >= _count)
+                throw new IndexOutOfRangeException();
+            var current = _head;
+            int index = 0;
+            while (current != null && index != position)
+            {
+                index++;
+                current = current.Next;
+            }
+            if (current.Previous != null)
+                current.Previous.Next = current.Next;
+            else _head = current.Next;
+            if (current.Next != null)
+                current.Next.Previous = current.Previous;
+            else _tail = current.Previous;
+            _count--;
+            return true;
         }
     }
 }

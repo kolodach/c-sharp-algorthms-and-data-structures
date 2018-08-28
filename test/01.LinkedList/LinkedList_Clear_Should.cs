@@ -4,7 +4,7 @@ using AlgorithmsAndDataStructures.Collections;
 
 namespace Test.AlgorithmsAndDataStructures.Collections
 {
-    public class LinkedList_Should_Clear
+    public class LinkedList_Clear_Should
     {
         [Fact]
         public void When_Empty()
