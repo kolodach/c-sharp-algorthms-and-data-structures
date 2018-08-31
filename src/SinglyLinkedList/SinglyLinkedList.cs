@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace AlgorithmsAndDataStructures.Collections
@@ -11,7 +12,7 @@ namespace AlgorithmsAndDataStructures.Collections
         public SinglyLinkedListNode<T> Next { get; set; }
         public T Value { get; set; }
     }
-    public class SinglyLinkedList<T> : IEnumerable<T>
+    public class SinglyLinkedList<T> : IStack<T>, IEnumerable<T>
     {
         private SinglyLinkedListNode<T> _head;
         private int _count;
@@ -36,6 +37,14 @@ namespace AlgorithmsAndDataStructures.Collections
             _count++;
         }
 
+        private void RemoveFirst()
+        {
+            if(_count != 0) {
+                _head = _head.Next;
+                _count--;
+            }
+        }
+
         public void Clear()
         {
             _head = null;
@@ -55,6 +64,27 @@ namespace AlgorithmsAndDataStructures.Collections
                 current = tmp1;
             }
             _head = tmp2;
+        }
+
+        public void Push(T element)
+        {
+            AddFirst(element);
+        }
+
+        public T Pop()
+        {
+            if(_count == 0)
+                throw new InvalidOperationException();
+            var value = _head.Value;
+            RemoveFirst();
+            return value;
+        }
+
+        public T Pick()
+        {
+            if(_count == 0)
+                throw new InvalidOperationException();
+            return _head.Value;
         }
     } 
 
