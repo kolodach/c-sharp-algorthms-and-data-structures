@@ -1,12 +1,15 @@
 using System;
 
-public interface IStack<T>
+namespace AlgorithmsAndDataStructures.Collections
 {
-    void Push(T element);
+    public interface IStack<T>
+    {
+        void Push(T element);
 
-    T Pop();
+        T Pop();
 
-    T Pick();
+        T Pick();
 
-    int Count { get; }
+        int Count { get; }
+    }
 }
