@@ -80,7 +80,7 @@ namespace AlgorithmsAndDataStructures.Collections
             return value;
         }
 
-        public T Pick()
+        public T Peek()
         {
             if(_count == 0)
                 throw new InvalidOperationException();

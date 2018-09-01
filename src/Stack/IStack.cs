@@ -8,7 +8,7 @@ namespace AlgorithmsAndDataStructures.Collections
 
         T Pop();
 
-        T Pick();
+        T Peek();
 
         int Count { get; }
     }

@@ -52,7 +52,7 @@ public class Stack_Should
         suit.Push(2);
         suit.Push(2);
         suit.Push(1);
-        var top = suit.Pick();
+        var top = suit.Peek();
 
         // Assert
         Assert.Equal(9, suit.Count);

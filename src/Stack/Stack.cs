@@ -9,15 +9,15 @@ namespace AlgorithmsAndDataStructures.Collections
         private int _count;
         private int _top;
 
-        public Stack()
+        public Stack(int capacity = DefaultCapacity)
         {
-            _array = new T[DefaultCapacity];
+            _array = new T[capacity];
             _top = -1;
         }
 
         public int Count => _count;
 
-        public T Pick()
+        public T Peek()
         {
             return _array[_top];
         }
