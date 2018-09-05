@@ -6,7 +6,7 @@ namespace AlgorithmsAndDataStructures.Collections
     /// <summary>
     /// Custom Linked List implementation. 
     /// </summary>
-    public class LinkedList<T> : IList<T>
+    public class LinkedList<T> : IList<T>, IQueue<T>
     {
         // First element of the linked list   
         private LinkedListNode<T> _head;
@@ -210,6 +210,30 @@ namespace AlgorithmsAndDataStructures.Collections
             else _tail = current.Previous;
             _count--;
             return true;
+        }
+
+        // Implements adding to the queue
+        public void Enqueue(T item)
+        {
+            AddLast(item);
+        }
+
+        // Implements removing from the queue
+        public T Dequeue()
+        {
+            if(_count == 0)
+                throw new InvalidOperationException();
+            var top = _head.Value;
+            Remove(0);
+            return top;
+        }
+
+        // Returns first element of the queue
+        public T Peek()
+        {
+            if(_count == 0)
+                throw new InvalidOperationException();
+            return _head.Value;
         }
     }
 }
