@@ -17,6 +17,9 @@ namespace AlgorithmsAndDataStructures.Collections
         // Currnet number of elements
         private int _count;
 
+        public LinkedListNode<T> Head => _head;
+        public LinkedListNode<T> Tail => _tail;
+
         /*
             Returns element at specific index. Iterates through if index is less than 0 or greater or equal then count
             System.IndexOutOfRangeException will be thrown.
